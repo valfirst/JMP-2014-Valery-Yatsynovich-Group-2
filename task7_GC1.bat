@@ -1,0 +1,1 @@
+java -Xms4m -Xms16m -Xmn2m -XX:PermSize=12m -XX:MaxPermSize=18m -XX:+UseG1GC -jar c:\HelloWorldSample.jar
