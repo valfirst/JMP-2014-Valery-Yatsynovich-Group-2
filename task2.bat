@@ -1,0 +1,1 @@
+java -XX:MaxTenuringThreshold=15 -XX:ThreadStackSize=1000 -XX:SurvivorRatio=4
