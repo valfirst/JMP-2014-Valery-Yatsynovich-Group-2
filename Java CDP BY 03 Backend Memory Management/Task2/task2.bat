@@ -1,1 +1,1 @@
-java -XX:MaxTenuringThreshold=15 -XX:ThreadStackSize=1000 -XX:SurvivorRatio=4
+java -Xmx316m -XX:NewSize=60m -XX:ThreadStackSize=1000 -XX:SurvivorRatio=4
