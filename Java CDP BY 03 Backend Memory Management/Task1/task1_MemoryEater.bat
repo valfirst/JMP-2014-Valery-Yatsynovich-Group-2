@@ -1,1 +1,1 @@
-java -XX:ThreadStackSize=2000 -Xmx1024m -XX:SurvivorRatio=15
+java -XX:ThreadStackSize=2000 -Xmx1024m -XX:SurvivorRatio=6
