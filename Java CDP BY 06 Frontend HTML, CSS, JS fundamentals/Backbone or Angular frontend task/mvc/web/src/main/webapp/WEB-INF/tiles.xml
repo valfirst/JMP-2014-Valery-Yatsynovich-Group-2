@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+    <definition name="default" template="/WEB-INF/jsp/layouts/default.jsp">
+        <put-attribute name="title" value=""/>
+        <put-attribute name="header" value="/WEB-INF/jsp/common/header.jsp"/>
+        <put-attribute name="sidebar" value=""/>
+        <put-attribute name="body" value=""/>
+        <put-attribute name="footer" value="/WEB-INF/jsp/common/footer.jsp"/>
+    </definition>
+
+    <definition name="book/main" extends="default">
+        <put-attribute name="title" value="Book Info"/>
+        <put-attribute name="sidebar" value="/WEB-INF/jsp/book/sidebar.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/book/allBooks.jsp"/>
+    </definition>
+
+    <definition name="book/genre" extends="default">
+        <put-attribute name="title" value="Book genre"/>
+        <put-attribute name="sidebar" value="/WEB-INF/jsp/book/sidebar.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/book/allBooksByGenre.jsp"/>
+    </definition>
+
+    <definition name="account" extends="default">
+        <put-attribute name="title" value="User account"/>
+        <put-attribute name="sidebar" value="/WEB-INF/jsp/book/sidebar.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/user/account.jsp"/>
+    </definition>
+
+    <definition name="book/addBook" extends="default">
+        <put-attribute name="title" value="Add book"/>
+        <put-attribute name="sidebar" value="/WEB-INF/jsp/book/sidebar.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/book/addBook.jsp"/>
+    </definition>
+
+</tiles-definitions>
+

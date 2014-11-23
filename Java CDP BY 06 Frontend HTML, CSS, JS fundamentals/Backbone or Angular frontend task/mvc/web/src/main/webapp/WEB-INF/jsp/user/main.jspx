@@ -1,0 +1,44 @@
+
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:s="http://www.springframework.org/tags/form"
+          xmlns="http://www.w3.org/1999/xhtml" version="2.0">
+    Main user page
+
+    <div>
+        Employees :
+        <c:if test="${empty persons}">EMPTY</c:if> <br/>
+
+        <c:forEach var="person1" items="${persons}" varStatus="status">
+            <br/>${status.count}. Name : ${person1.name} Surname: ${person1.surname} ${person1.age} years
+        </c:forEach>
+    </div>
+
+    <div>
+        <input id="addPerson" type="button" value="Add person"/>
+        <input id="updatePerson" type="button" value="Update person"/>
+        <input id="infoPerson" type="button" value="View person info"/>
+        <input id="deletePerson" type="button" value="Delete person"/>
+        <form action="person-info.form" style="display: none" id="infoForm">
+            <label for="id">Id</label>
+            <input id="personid" type="text" value="" maxlength="3" placeholder="id" name="personId"/><br/>
+            <input id="name" type="text" value="" maxlength="3" placeholder="name" name="name"/><br/>
+            <input id="age" type="text" value="" maxlength="3" placeholder="age" name="age"/><br/>
+            <input type="submit" value="Go"/><br/>
+        </form>
+    </div>
+    <br/>
+    <s:form id="personForm" name="person" action="" style="display: none" modelAttribute="person" method="post">
+        <fieldset>
+            <label for="name">Person Name</label>
+            <s:input id="name" type="text" maxlength="20" path="name"/><br/>
+            <label for="name">Surname</label>
+            <s:input id="name" type="text" value="" maxlength="20" path="surname" placeholder="Person Surname"/><br/>
+            <label for="age">Age</label>
+            <s:input id="age" type="text" path="age" value="" maxlength="3" placeholder="Person Age"/><br/>
+            <label for="id">Id</label>
+            <input id="id" type="text" value="" maxlength="3" placeholder="id" name="id" style="display: none"/><br/>
+            <input id="personButton" type="submit" value=""/>
+        </fieldset>
+    </s:form>
+</jsp:root>
