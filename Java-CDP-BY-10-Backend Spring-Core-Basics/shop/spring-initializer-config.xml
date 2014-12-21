@@ -1,0 +1,36 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+   <!--
+    c. ProductInitializer: передать параметры в конструктор
+    d. DataInitializer: объявить init метод
+    -->
+
+    <bean id="sellerInitialized" class="org.shop.SellerInitializer">
+        <constructor-arg  ref="sellerNames" />
+        <property name="sellerService" ref="sellerService" />
+    </bean>
+
+    <bean id="proposalInitializer" class="org.shop.ProposalInitializer" autowire="byName" />
+
+    <bean id="productInitializer" class="org.shop.ProductInitializer">
+        <constructor-arg ref="productService" />
+    </bean>
+
+    <bean id="sellerNames" class="java.util.HashMap" >
+        <constructor-arg index="0">
+            <map key-type="java.lang.Long" value-type="java.lang.String">
+                <entry key="1" value="org.shop.common.Sellers.AMAZON" />
+                <entry key="2" value="org.shop.common.Sellers.SAMSUNG" />
+                <entry key="3" value="Apple" />
+            </map>
+        </constructor-arg>
+    </bean>
+
+    <bean id="dataInitializer" class="org.shop.DataInitializer" init-method="initData" />
+
+</beans>
