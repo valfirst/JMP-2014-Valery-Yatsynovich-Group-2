@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../.resources/report.gif" type="image/gif"/><title>ExceptionHandlingTest.java</title><link rel="stylesheet" href="../../../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../.sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">Bank_With_tests_Eclipse (Jan 26, 2015 12:39:21 AM)</a> &gt; <a href="../../index.html" class="el_group">Bank_With_tests_Eclipse</a> &gt; <a href="../index.html" class="el_bundle">tests</a> &gt; <a href="index.source.html" class="el_package">test.java.Bank</a> &gt; <span class="el_source">ExceptionHandlingTest.java</span></div><h1>ExceptionHandlingTest.java</h1><pre class="source lang-java linenums">package test.java.Bank;
+
+import mainnew.CurrencyExchangeRate;
+import exception.BankException;
+import manager.Manager;
+import Model.Bank;
+import Model.CurrencyType;
+import Model.Person;
+import org.junit.Assert;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+
+/**
+ * Created by Julia on 11/1/14.
+ */
+@RunWith(org.junit.runners.JUnit4.class)
+<span class="fc" id="L17">public class ExceptionHandlingTest extends Assert{</span>
+
+    @Test(expected = BankException.class)
+    public void managerTestNullPerson() throws BankException {
+<span class="nc" id="L21">        new Manager(new Bank(), null, CurrencyType.BYR);</span>
+<span class="nc" id="L22">    }</span>
+
+    @Test(expected = BankException.class)
+    public void managerTestNull() throws BankException {
+<span class="nc" id="L26">        new Manager(null, new Person(), CurrencyType.BYR);</span>
+<span class="nc" id="L27">    }</span>
+
+    @Test(expected = BankException.class)
+    public void currencyTypeIsNull() throws BankException {
+<span class="nc" id="L31">        new Manager(new Bank(), new Person(), null);</span>
+<span class="nc" id="L32">    }</span>
+
+    @Test(expected = BankException.class)
+    public void allNull() throws BankException {
+<span class="nc" id="L36">        new Manager(null, null, null);</span>
+<span class="nc" id="L37">    }</span>
+
+    @Test(expected = BankException.class)
+    public void bankNullInCurrencyExcRate() throws BankException {
+<span class="fc" id="L41">        new CurrencyExchangeRate(&quot; some name&quot;, null);</span>
+<span class="fc" id="L42">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.2.201409121644</span>Bank_With_tests_Eclipse (Jan 26, 2015 12:39:21 AM)</div></body></html>
